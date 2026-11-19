@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Taste of Ardmore | Ardmore Development Authority</title>
+<meta name="description" content="Meet the local restaurants and shops that make Ardmore, Oklahoma, feel like home from the first visit, and see why Ardmore means more for your next project.">
+<meta property="og:title" content="A Taste of Ardmore">
+<meta property="og:description" content="Meet the local businesses that make Ardmore, Oklahoma, feel like home from the first visit.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ryan-hallpass.github.io/taste-of-ardmore/">
+<meta property="og:image" content="https://ryan-hallpass.github.io/taste-of-ardmore/assets/hero-hamburger-inn.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bevan&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  /* Palette + type pulled from ardmoredevelopment.com (ardmore.min.css) */
+  :root {
+    --red: #DF2216;       /* --primary-color */
+    --navy: #0D223F;      /* --blue-base-color */
+    --navy-2: #13294A;
+    --amber: #AE5700;     /* --secondary-color */
+    --gray: #E8E8E8;      /* --gray-color */
+    --cream: #FFF4E9;     /* --bg-hover-color */
+    --ink: #111;
+    --heading: "Bevan", Georgia, serif;
+    --display: "Bebas Neue", "Oswald", sans-serif;
+    --body: "Manrope", system-ui, sans-serif;
+    --wrap: 1180px;
+    --gutter: clamp(16px, 4vw, 40px);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { font-family: var(--body); color: var(--ink); background: #fff; line-height: 1.6; font-size: 1rem; }
+  img { max-width: 100%; display: block; }
+  a { color: var(--navy); }
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+  .eyebrow { font-weight: 800; font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; color: var(--red); }
+
+  /* ---------- Header ---------- */
+  .site-header { background: var(--navy); }
+  .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 14px; padding-bottom: 14px; }
+  .site-header img { width: clamp(150px, 30vw, 210px); height: auto; }
+  .site-header a.home {
+    color: #fff; text-decoration: none; font-weight: 700; font-size: .82rem; letter-spacing: .06em;
+    border: 1px solid rgba(255,255,255,.35); padding: 8px 14px; white-space: nowrap;
+  }
+  .site-header a.home:hover { background: var(--red); border-color: var(--red); }
+
+  /* ---------- Hero (red-washed photo, white headline box like the ADA homepage) ---------- */
+  .hero { position: relative; overflow: hidden; background: var(--red); color: #fff; }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background: url(assets/hero-hamburger-inn.jpg) 62% 30% / cover no-repeat;
+    filter: grayscale(1) contrast(1.1); mix-blend-mode: multiply; opacity: .9;
+  }
+  .hero::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(13,34,63,.55) 0%, rgba(13,34,63,.15) 55%, rgba(13,34,63,0) 100%);
+  }
+  .hero .wrap { position: relative; z-index: 1; padding-top: clamp(64px, 12vw, 140px); padding-bottom: clamp(64px, 11vw, 130px); }
+  .hero .kicker { font-weight: 700; font-size: clamp(1.05rem, 2.4vw, 1.4rem); margin-bottom: 6px; }
+  .hero h1 {
+    display: inline-block; background: #fff; color: var(--red);
+    font-family: var(--display); font-weight: 400; line-height: .92;
+    font-size: clamp(3.2rem, 11vw, 7.5rem); padding: .08em .18em .02em; letter-spacing: .01em;
+  }
+  .hero p.lede { max-width: 34rem; margin-top: 22px; font-size: clamp(1.02rem, 2vw, 1.2rem); font-weight: 500; line-height: 1.55; }
+  .hero .scroll {
+    display: inline-flex; align-items: center; gap: 10px; margin-top: 30px;
+    background: var(--navy); color: #fff; text-decoration: none; font-weight: 800; font-size: .9rem; letter-spacing: .04em;
+    padding: 14px 22px;
+  }
+  .hero .scroll:hover { background: #fff; color: var(--navy); }
+  .hero .scroll svg { width: 14px; height: 14px; }
+
+  /* ---------- Intro ---------- */
+  .intro { padding: clamp(56px, 8vw, 96px) 0; }
+  .intro .wrap { display: grid; gap: clamp(24px, 5vw, 64px); grid-template-columns: 1fr; }
+  @media (min-width: 860px) { .intro .wrap { grid-template-columns: 5fr 7fr; align-items: start; } }
+  .intro h2 {
+    font-family: var(--heading); color: var(--red); font-weight: 400;
+    font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.12;
+    border-left: 4px solid var(--red); padding-left: 22px;
+  }
+  .intro .copy p { font-size: 1.05rem; margin-bottom: 1em; }
+  .intro .copy p:last-child { margin-bottom: 0; }
+  .intro .copy .signoff { font-family: var(--heading); color: var(--amber); font-size: 1.1rem; }
+
+  /* ---------- Videos ---------- */
+  .videos { background: var(--navy); color: #fff; padding: clamp(56px, 8vw, 96px) 0; }
+  .videos header { text-align: center; max-width: 40rem; margin: 0 auto clamp(32px, 5vw, 56px); }
+  .videos h2 { font-family: var(--heading); font-weight: 400; font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1.15; margin-top: 10px; }
+  .videos header p { margin-top: 12px; color: rgba(255,255,255,.82); }
+  .grid { display: grid; gap: 28px 22px; grid-template-columns: 1fr; justify-items: center; }
+  @media (min-width: 640px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1100px) { .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  .card { width: 100%; max-width: 340px; display: flex; flex-direction: column; }
+  .card .num { font-family: var(--display); font-size: 1.1rem; letter-spacing: .08em; color: var(--red); }
+  .card h3 { font-family: var(--heading); font-weight: 400; font-size: 1.3rem; line-height: 1.2; margin: 2px 0 6px; }
+  .card .meta { flex: 1; } /* pushes players to a shared baseline when titles wrap */
+  .card p { font-size: .92rem; line-height: 1.5; color: rgba(255,255,255,.8); }
+  .player {
+    position: relative; margin-top: 14px; aspect-ratio: 9 / 16; width: 100%;
+    background: #09172A; border-top: 4px solid var(--red); overflow: hidden;
+  }
+  .player iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .player .loading {
+    position: absolute; inset: 0; display: grid; place-items: center; text-align: center;
+    color: rgba(255,255,255,.5); font-size: .85rem; padding: 20px;
+  }
+  .card a.fb { margin-top: 10px; font-size: .82rem; font-weight: 700; color: #fff; opacity: .75; text-underline-offset: 3px; }
+  .card a.fb:hover { opacity: 1; }
+  .credit { text-align: center; margin-top: 40px; font-size: .85rem; color: rgba(255,255,255,.6); }
+  .credit a { color: #fff; }
+
+  /* ---------- Why Ardmore (stat blocks echo the ADA homepage) ---------- */
+  .why { padding: clamp(56px, 8vw, 96px) 0 0; }
+  .why header { max-width: 44rem; margin-bottom: clamp(28px, 4vw, 44px); }
+  .why h2 { font-family: var(--heading); color: var(--red); font-weight: 400; font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1.15; margin-top: 10px; }
+  .why header p { margin-top: 14px; font-size: 1.05rem; }
+  .stats { display: grid; grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 980px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+  .stat { background: var(--navy); color: #fff; padding: clamp(24px, 4vw, 34px) clamp(12px, 3vw, 26px) clamp(26px, 4vw, 38px); text-align: center; }
+  .stat:nth-child(2), .stat:nth-child(3) { background: var(--navy-2); } /* checkerboard in 2x2 */
+  @media (min-width: 980px) { .stat:nth-child(n) { background: var(--navy); } .stat:nth-child(even) { background: var(--navy-2); } }
+  @media (max-width: 559px) { .stat span { font-size: .85rem; } }
+  .stat b { display: block; font-family: var(--heading); font-weight: 400; font-size: clamp(2.8rem, 6vw, 3.6rem); line-height: 1; }
+  .stat span { display: block; margin-top: 12px; font-weight: 700; font-size: .95rem; line-height: 1.45; }
+
+  /* ---------- Contact CTA ---------- */
+  .cta { background: var(--red); color: #fff; padding: clamp(48px, 7vw, 80px) 0; }
+  .cta .wrap { display: grid; gap: 28px; align-items: center; }
+  @media (min-width: 860px) { .cta .wrap { grid-template-columns: 7fr 5fr; } }
+  .cta h2 { font-family: var(--heading); font-weight: 400; font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1.15; }
+  .cta p { margin-top: 12px; font-size: 1.05rem; max-width: 34rem; }
+  .contact-card { background: #fff; color: var(--navy); padding: 26px 28px; border-left: 6px solid var(--navy); }
+  .contact-card .name { font-weight: 800; font-size: 1.1rem; letter-spacing: .02em; }
+  .contact-card .role { font-size: .9rem; color: #444; margin-bottom: 14px; }
+  .contact-card a { display: block; font-weight: 700; text-decoration: none; padding: 4px 0; color: var(--navy); }
+  .contact-card a:hover { color: var(--red); }
+  .contact-card .btn {
+    display: inline-block; margin-top: 14px; background: var(--navy); color: #fff; padding: 12px 18px;
+    font-size: .88rem; letter-spacing: .04em;
+  }
+  .contact-card .btn:hover { background: var(--red); color: #fff; }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--navy); color: rgba(255,255,255,.8); padding: 36px 0; font-size: .88rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 18px 32px; align-items: center; justify-content: space-between; }
+  footer img { width: 180px; }
+  footer a { color: #fff; }
+
+  :focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="https://ardmoredevelopment.com/" aria-label="Ardmore Development Authority home"><img src="assets/ada-logo-white.png" alt="Ardmore Development Authority" width="210" height="60"></a>
+    <a class="home" href="https://ardmoredevelopment.com/">ardmoredevelopment.com</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="kicker">Season's greetings. Welcome to</div>
+    <h1>A Taste of Ardmore</h1>
+    <p class="lede">Meet the local restaurants and shops that make Ardmore, Oklahoma, feel like home from the first visit.</p>
+    <a class="scroll" href="#videos">Meet the businesses
+      <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1v11M2 7.5 7 12.5l5-5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+    </a>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="wrap">
+    <h2>Every candle has a hometown story.</h2>
+    <div class="copy">
+      <p>The candles in your gift basket were hand-poured by <strong>Ardmore Candle Co.</strong> and inspired by the restaurants locals love. Places like these are why people put down roots in Ardmore, and why companies choose to grow here too.</p>
+      <p>Pull up a chair and meet a few of the local favorites behind the flavor of our downtown.</p>
+      <p class="signoff">From all of us in Ardmore, happy holidays.</p>
+    </div>
+  </div>
+</section>
+
+<section class="videos" id="videos">
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Meet the businesses</div>
+      <h2>The hometown favorites behind your basket</h2>
+      <p>Grab a seat. These are the spots Ardmore keeps coming back to.</p>
+    </header>
+    <div class="grid" id="grid"></div>
+    <p class="credit">Videos courtesy of <a href="https://www.facebook.com/ExploreArdmore" target="_blank" rel="noopener">Explore Ardmore</a>.</p>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Your next project</div>
+      <h2>Why Ardmore means more</h2>
+      <p>The same small-town character you'll see in these videos sits right on I-35, between two of the fastest-growing metros in the country.</p>
+    </header>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>90</b><span>Minutes from both Oklahoma City and Dallas–Fort Worth</span></div>
+    <div class="stat"><b>34%</b><span>Lower average home cost than the national average</span></div>
+    <div class="stat"><b>9</b><span>Colleges serving the Ardmore area</span></div>
+    <div class="stat"><b>3</b><span>Rail operators, including a BNSF mainline</span></div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div>
+      <h2>Let's talk about your next project.</h2>
+      <p>Sites, incentives, workforce, or a table at one of these restaurants. We'd love to show you around.</p>
+    </div>
+    <div class="contact-card">
+      <div class="name">Andrea Anderson</div>
+      <div class="role">Senior Vice President of Economic Development</div>
+      <a href="tel:+15802236162">(580) 223-6162</a>
+      <a href="mailto:aanderson@ardmore.org">aanderson@ardmore.org</a>
+      <a class="btn" href="https://ardmoredevelopment.com/">Visit ardmoredevelopment.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/ada-logo-white.png" alt="Ardmore Development Authority" width="180" height="52">
+    <div>410 W Main St, Ardmore, OK 73401 &nbsp;·&nbsp; <a href="tel:+15802236162">(580) 223-6162</a></div>
+  </div>
+</footer>
+
+<script>
+  // Edit this list to add, remove, or reorder videos. `href` must be the canonical
+  // facebook.com/<page>/videos/... URL (share links don't embed reliably).
+  const VIDEOS = [
+    { name: "Hamburger Inn",
+      blurb: "An Ardmore institution since before most of us can remember, and still one of the best deals in town.",
+      href: "https://www.facebook.com/ExploreArdmore/videos/4173562116230946/" },
+    { name: "Cafe Alley",
+      blurb: "Downtown vibes, great food, and a dessert that might be the best in Oklahoma.",
+      href: "https://www.facebook.com/ExploreArdmore/videos/1617164749535431/" },
+    { name: "The Station Bar & Grill",
+      blurb: "A downtown sports bar hiding some serious gems on its walls, signed memorabilia included.",
+      href: "https://www.facebook.com/ExploreArdmore/videos/1781470899499839/" },
+    { name: "Scout Market",
+      blurb: "An Ardmore staple for over 10 years, now under new ownership with recipes to go.",
+      href: "https://www.facebook.com/ExploreArdmore/videos/26582747878080142/" },
+  ];
+
+  const grid = document.getElementById("grid");
+  VIDEOS.forEach((v, i) => {
+    const src = "https://www.facebook.com/plugins/video.php?href=" + encodeURIComponent(v.href) +
+                "&show_text=false&width=340&height=604&t=0";
+    const card = document.createElement("article");
+    card.className = "card";
+    card.innerHTML = `
+      <div class="meta">
+        <div class="num">${String(i + 1).padStart(2, "0")}</div>
+        <h3></h3>
+        <p></p>
+      </div>
+      <div class="player">
+        <div class="loading">Loading video…</div>
+        <iframe loading="lazy" scrolling="no" allowfullscreen
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+      </div>
+      <a class="fb" target="_blank" rel="noopener">Watch on Facebook ↗</a>`;
+    card.querySelector("h3").textContent = v.name;
+    card.querySelector("p").textContent = v.blurb;
+    const f = card.querySelector("iframe");
+    f.title = v.name + " video";
+    f.src = src;
+    card.querySelector("a.fb").href = v.href;
+    grid.appendChild(card);
+  });
+</script>
+</body>
+</html>

@@ -134,13 +134,15 @@
   .location { background: var(--gray); padding: clamp(48px, 7vw, 88px) 0; }
   .location .wrap { display: grid; gap: clamp(28px, 4vw, 56px); align-items: center; }
   @media (min-width: 900px) { .location .wrap { grid-template-columns: 7fr 5fr; } }
+  /* Red rule on the left edge so the cropped panhandle reads as running off the panel */
+  .location figure { border-left: 6px solid var(--red); }
   .location figure img { width: 100%; height: auto; }
   .location figcaption { font-size: .8rem; color: #555; margin-top: 8px; }
   .location h2 { font-family: var(--heading); color: var(--red); font-weight: 400; font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1.15; margin-top: 10px; }
   .location p { margin-top: 14px; font-size: 1.05rem; }
   .location ul { list-style: none; margin-top: 20px; display: grid; gap: 10px; }
-  .location li { position: relative; padding-left: 22px; font-weight: 700; color: var(--navy); }
-  .location li::before { content: ""; position: absolute; left: 0; top: .5em; width: 9px; height: 9px; background: var(--red); transform: rotate(45deg); }
+  .location li { display: flex; align-items: baseline; gap: 12px; font-weight: 700; color: var(--navy); }
+  .location li::before { content: "\25C6"; color: var(--red); font-size: .8em; line-height: 1; flex: none; } /* ◆ */
 
   /* ---------- Contact CTA ---------- */
   .cta { background: var(--red); color: #fff; padding: clamp(48px, 7vw, 80px) 0; }

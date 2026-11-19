@@ -21,6 +21,7 @@
     --red: #DF2216;       /* --primary-color */
     --navy: #0D223F;      /* --blue-base-color */
     --navy-2: #13294A;
+    --steel: #2D5A8F;     /* secondary blue (map block) */
     --amber: #AE5700;     /* --secondary-color */
     --gray: #E8E8E8;      /* --gray-color */
     --cream: #FFF4E9;     /* --bg-hover-color */
@@ -132,12 +133,12 @@
 
   /* ---------- Location map (gray block like the ADA homepage map) ---------- */
   .location { position: relative; background: var(--gray); padding: clamp(48px, 7vw, 88px) 0; }
-  /* Solid red block filling everything left of the map, top to bottom of the section,
+  /* Solid steel-blue block filling everything left of the map, top to bottom of the section,
      so the cropped panhandle reads as framed off the panel. Width = page margin + gutter. */
   .location::before {
     content: ""; position: absolute; top: 0; bottom: 0; left: 0;
     width: calc(max(0px, (100% - var(--wrap)) / 2) + var(--gutter));
-    background: var(--red);
+    background: var(--steel);
   }
   .location .wrap { position: relative; }
   @media (max-width: 899px) { .location .wrap > div { padding-left: var(--gutter); } } /* keep text off the red strip when stacked */

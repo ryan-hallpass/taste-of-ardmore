@@ -133,12 +133,12 @@
 
   /* ---------- Location map (gray block like the ADA homepage map) ---------- */
   .location { position: relative; background: var(--gray); padding: clamp(48px, 7vw, 88px) 0; }
-  /* Solid steel-blue block filling everything left of the map, top to bottom of the section,
+  /* Solid navy block filling everything left of the map, top to bottom of the section,
      so the cropped panhandle reads as framed off the panel. Width = page margin + gutter. */
   .location::before {
     content: ""; position: absolute; top: 0; bottom: 0; left: 0;
     width: calc(max(0px, (100% - var(--wrap)) / 2) + var(--gutter));
-    background: var(--steel);
+    background: var(--navy);
   }
   .location .wrap { position: relative; }
   @media (max-width: 899px) { .location .wrap > div { padding-left: var(--gutter); } } /* keep text off the red strip when stacked */

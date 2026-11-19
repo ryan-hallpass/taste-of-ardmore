@@ -131,18 +131,25 @@
   .stat span { display: block; margin-top: 12px; font-weight: 700; font-size: .95rem; line-height: 1.45; }
 
   /* ---------- Location map (gray block like the ADA homepage map) ---------- */
-  .location { background: var(--gray); padding: clamp(48px, 7vw, 88px) 0; }
+  .location { position: relative; background: var(--gray); padding: clamp(48px, 7vw, 88px) 0; }
+  /* Solid red block filling everything left of the map, top to bottom of the section,
+     so the cropped panhandle reads as framed off the panel. Width = page margin + gutter. */
+  .location::before {
+    content: ""; position: absolute; top: 0; bottom: 0; left: 0;
+    width: calc(max(0px, (100% - var(--wrap)) / 2) + var(--gutter));
+    background: var(--red);
+  }
+  .location .wrap { position: relative; }
+  @media (max-width: 899px) { .location .wrap > div { padding-left: var(--gutter); } } /* keep text off the red strip when stacked */
   .location .wrap { display: grid; gap: clamp(28px, 4vw, 56px); align-items: center; }
   @media (min-width: 900px) { .location .wrap { grid-template-columns: 7fr 5fr; } }
-  /* Red rule on the left edge so the cropped panhandle reads as running off the panel */
-  .location figure { border-left: 6px solid var(--red); }
   .location figure img { width: 100%; height: auto; }
   .location figcaption { font-size: .8rem; color: #555; margin-top: 8px; }
   .location h2 { font-family: var(--heading); color: var(--red); font-weight: 400; font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1.15; margin-top: 10px; }
   .location p { margin-top: 14px; font-size: 1.05rem; }
   .location ul { list-style: none; margin-top: 20px; display: grid; gap: 10px; }
   .location li { display: flex; align-items: baseline; gap: 12px; font-weight: 700; color: var(--navy); }
-  .location li::before { content: "\25C6"; color: var(--red); font-size: .8em; line-height: 1; flex: none; } /* ◆ */
+  .location li .dia { flex: none; width: 9px; height: 9px; background: var(--red); transform: translateY(-1px) rotate(45deg); }
 
   /* ---------- Contact CTA ---------- */
   .cta { background: var(--red); color: #fff; padding: clamp(48px, 7vw, 80px) 0; }
@@ -240,10 +247,10 @@
       <h2 id="loc-h">Right in the middle of everything</h2>
       <p>Ardmore sits on I&#8209;35, about 90 minutes from both Oklahoma City and Dallas–Fort Worth. Connections to I&#8209;40 and I&#8209;44 put any city in the nation within three days by truck.</p>
       <ul>
-        <li>I&#8209;35 corridor between OKC and DFW</li>
-        <li>BNSF mainline rail</li>
-        <li>Foreign Trade Zone #227</li>
-        <li>9,000-ft runway at the Ardmore Industrial Airpark</li>
+        <li><span class="dia" aria-hidden="true"></span><span>I&#8209;35 corridor between OKC and DFW</span></li>
+        <li><span class="dia" aria-hidden="true"></span><span>BNSF mainline rail</span></li>
+        <li><span class="dia" aria-hidden="true"></span><span>Foreign Trade Zone #227</span></li>
+        <li><span class="dia" aria-hidden="true"></span><span>9,000-ft runway at the Ardmore Industrial Airpark</span></li>
       </ul>
     </div>
   </div>

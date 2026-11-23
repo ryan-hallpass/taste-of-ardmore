@@ -2,6 +2,7 @@
 
 Landing page for the Ardmore Development Authority holiday gift baskets (Ardmore Candle Co.). The QR code on the 4×6 basket card links here.
 
-- **Live:** https://ryan-hallpass.github.io/taste-of-ardmore/
+- **Live:** https://candle.ardmoredevelopment.com/ (the original https://ryan-hallpass.github.io/taste-of-ardmore/ address, which the printed QR uses, redirects here)
+- **holiday.ardmoredevelopment.com** redirects here too, via the `ryan-hallpass/holiday-ardmore-redirect` repo (Pages allows one custom domain per site).
 - **Edit videos:** the `VIDEOS` array at the bottom of `index.html` (use canonical `facebook.com/<page>/videos/<id>/` URLs).
-- **Custom subdomain later:** add a `CNAME` file with the subdomain once ADA's web team points DNS at `ryan-hallpass.github.io`. GitHub then redirects the github.io URL to the subdomain, so printed QR codes keep working.
+- **DNS:** Golden Shovel Agency (Courtney Coy) added CNAME records for `candle` and `holiday` pointing at `ryan-hallpass.github.io`. Don't delete the `CNAME` file or this repo, or the printed QR codes break.
